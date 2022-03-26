@@ -171,26 +171,26 @@ Citizen.CreateThread(function()
 		
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, gym[k].x, gym[k].y, gym[k].z)
-			if dist < 15 then
-			letSleep = false
-			DrawMarker(22, gym[k].x, gym[k].y, gym[k].z, 0, 0, 0, 0, 0, 0, 0.301, 0.301, 0.3001, 51, 255, 255, 200, 0, 0, 0, 0)
-            if dist <= 0.5 then
-				hintToDisplay('Pulsa ~INPUT_CONTEXT~ para abrir el menu del gym')
+            	if dist < 15 then
+            	letSleep = false
+            	DrawMarker(22, gym[k].x, gym[k].y, gym[k].z, 0, 0, 0, 0, 0, 0, 0.301, 0.301, 0.3001, 51, 255, 255, 200, 0, 0, 0, 0)
+                    if dist <= 0.5 then
+                    	hintToDisplay('Pulsa ~INPUT_CONTEXT~ para abrir el menu del gym')
 				
-				if IsControlJustPressed(0, Keys['E']) then
-				    if Licenses['gym'] ~= nil then
-						OpenGymMenu()
-								else
-						OpenBuyLicenseMenu()
-					end
-				end			
-            end
+                    	if IsControlJustPressed(0, Keys['E']) then
+                    		if Licenses['gym'] ~= nil then
+                    			OpenGymMenu()
+                    		else
+					OpenBuyLicenseMenu()
+                    		end
+                    	end			
+		    end
+                end
         end
-        end
-		if letSleep then
-			Citizen.Wait(1000)
-		end
-		Citizen.Wait(1)
+	if letSleep then
+		Citizen.Wait(1000)
+	end
+	Citizen.Wait(1)
     end
 end)
 
@@ -205,7 +205,7 @@ Citizen.CreateThread(function()
 		if dist < 15 then
 			letSleep = false
 			DrawMarker(21, arms[k].x, arms[k].y, arms[k].z, 0, 0, 0, 0, 0, 0, 0.301, 0.301, 0.3001, 0, 255, 50, 200, 0, 0, 0, 0)
-            if dist <= 0.5 then
+         		   if dist <= 0.5 then
 				hintToDisplay('Pulsa ~INPUT_CONTEXT~ para ejecitar tus Brazos')
 				
 				if IsControlJustPressed(0, Keys['E']) then
